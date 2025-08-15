@@ -20,3 +20,5 @@ src/
   assets/
   utils/
 ```
+
+Components were previously under `rc/components`; ensure new imports reference the `src/components` directory.
