@@ -1,9 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import Dashboard from './pages/Dashboard';
-import NavBar from './components/NavBar';
 import React, { useState, useEffect } from 'react';
+import Dashboard from './pages/Dashboard';
+import News from './pages/News';
+import Market from './pages/Market';
+import Messages from './pages/Messages';
+import Portfolio from './pages/Portfolio';
+import Settings from './pages/Settings';
 import ThemeToggle from './components/ThemeToggle';
+import Sidebar from './components/Sidebar';
 import styles from './App.module.scss';
 
 function App() {
@@ -24,13 +28,19 @@ function App() {
   return (
     <BrowserRouter>
       <div className={styles.container}>
-        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        <h1>Crypto Dashboard Starter</h1>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+        <Sidebar />
+        <div className={styles.content}>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
