@@ -4,9 +4,9 @@ import styles from './MetricComparison.module.scss';
 function MetricComparison({ label, current, previous, period }) {
   const difference = current - previous;
   const percent = previous !== 0 ? (difference / previous) * 100 : 0;
-  let color = '#666';
-  if (percent > 0) color = 'green';
-  else if (percent < 0) color = 'red';
+  let color = 'var(--color-text)';
+  if (percent > 0) color = 'var(--color-accent-3)';
+  else if (percent < 0) color = 'var(--color-negative)';
   const sign = percent > 0 ? '+' : '';
 
   return (

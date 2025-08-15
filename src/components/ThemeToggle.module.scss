@@ -5,7 +5,7 @@
   border: none;
   border-radius: 13px;
   padding: 0;
-  background: #222;
+  background: var(--color-surface);
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -17,12 +17,12 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-text);
   transition: transform 0.4s ease, background 0.3s, box-shadow 0.3s;
 }
 
 .dark {
-  background: #222;
+  background: var(--color-surface);
 }
 
 .dark .ball::before {
@@ -30,20 +30,20 @@
   position: absolute;
   width: 22px;
   height: 22px;
-  background: #222;
+  background: var(--color-surface);
   border-radius: 50%;
   top: 0;
   left: 8px;
 }
 
 .light {
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .light .ball {
   transform: translateX(24px);
-  background: #ffdf5d;
-  box-shadow: 0 0 8px rgba(255, 223, 93, 0.8);
+  background: var(--color-accent-4);
+  box-shadow: 0 0 8px rgba(255, 212, 59, 0.8);
 }
 
 .light .ball::before {
