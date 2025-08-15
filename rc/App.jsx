@@ -11,6 +11,8 @@ const Container = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
+  background-color: var(--color-bg);
+  color: var(--color-text);
 `;
 
 function App() {
