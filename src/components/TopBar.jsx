@@ -1,6 +1,6 @@
-import React from 'react';
-import ThemeToggle from './ThemeToggle';
-import styles from './TopBar.module.scss';
+import React from "react";
+import styles from "./TopBar.module.scss";
+import ThemeToggle from "./ThemeToggle";
 
 function TopBar({ stats = [], user, theme, toggleTheme }) {
   return (
@@ -34,4 +34,3 @@ function TopBar({ stats = [], user, theme, toggleTheme }) {
 }
 
 export default TopBar;
-

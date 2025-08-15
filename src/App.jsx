@@ -6,8 +6,7 @@ import Market from './pages/Market';
 import Messages from './pages/Messages';
 import Portfolio from './pages/Portfolio';
 import Settings from './pages/Settings';
-import ThemeToggle from './components/ThemeToggle';
-import Sidebar from './components/Sidebar';
+import { Sidebar, TopBar } from './components';
 import styles from './App.module.scss';
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.content}>
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+          <TopBar theme={theme} toggleTheme={toggleTheme} />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />

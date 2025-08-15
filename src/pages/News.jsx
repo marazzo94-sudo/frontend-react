@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsDigest from '../components/NewsDigest';
+import { NewsDigest } from '../components';
 
 function News() {
   return <NewsDigest />;
