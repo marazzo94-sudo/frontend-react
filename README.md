@@ -24,3 +24,4 @@ src/
   assets/
   utils/
 ```
+Import any shared UI elements from `src/components`.

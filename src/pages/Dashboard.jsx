@@ -15,9 +15,10 @@ function Dashboard() {
   ];
 
   const assets = [
-    { symbol: 'BTC', percentage: 40, color: '#f7931a' },
-    { symbol: 'ETH', percentage: 30, color: '#3c3c3d' },
-    { symbol: 'ADA', percentage: 30, color: '#0F8AD9' },
+    { symbol: 'BTC', percentage: 40, color: 'var(--color-accent-4)' },
+    { symbol: 'ETH', percentage: 30, color: 'var(--color-accent-5)' },
+    { symbol: 'ADA', percentage: 30, color: 'var(--color-accent-6)' },
+
   ];
 
   const { data, loading, error } = useCryptoData();

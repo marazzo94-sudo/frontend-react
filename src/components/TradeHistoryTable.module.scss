@@ -12,14 +12,16 @@
   cursor: pointer;
   padding: 0.5rem;
   text-align: left;
-  background: #f0f0f0;
+  background: var(--color-surface);
+
   position: sticky;
   top: 0;
 }
 
 .td {
   padding: 0.5rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--color-border);
+
 }
 
 .pagination {

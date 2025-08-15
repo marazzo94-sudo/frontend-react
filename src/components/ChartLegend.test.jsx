@@ -4,8 +4,8 @@ import '@testing-library/jest-dom/vitest';
 import ChartLegend from './ChartLegend';
 
 const sampleItems = [
-  { label: 'Stocks', color: '#1e90ff', visible: true },
-  { label: 'Bonds', color: '#ff6347', visible: false },
+  { label: 'Stocks', color: 'var(--color-accent-1)', visible: true },
+  { label: 'Bonds', color: 'var(--color-accent-2)', visible: false },
 ];
 
 describe('ChartLegend', () => {
