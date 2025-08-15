@@ -1,0 +1,26 @@
+.container {
+  padding: 1rem;
+  max-width: 600px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saveButton {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+}
