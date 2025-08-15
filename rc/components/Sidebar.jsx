@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Container = styled.aside`
   width: 220px;
-  background: #0b0d21;
-  color: #fff;
+  background: var(--color-bg);
+  color: var(--color-text);
   height: 100vh;
   padding-top: 1.5rem;
   display: flex;
@@ -23,12 +23,12 @@ const Item = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #fff;
+  color: var(--color-text);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
 
   &.active {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-primary);
   }
 `;
 
