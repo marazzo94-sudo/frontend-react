@@ -1,31 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Card = styled.div`
-  background: #1e1e1e;
-  padding: 1rem;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const List = styled.ul`
-  list-style: none;
-  width: 100%;
-`;
-
-const ListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  padding: 0.25rem 0;
-`;
-
-const Chart = styled.div`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-`;
+import styles from './AssetBreakdownCard.module.scss';
 
 function AssetBreakdownCard({ assets = [], view = 'chart' }) {
   const gradient = React.useMemo(() => {
@@ -41,21 +15,24 @@ function AssetBreakdownCard({ assets = [], view = 'chart' }) {
   }, [assets]);
 
   return (
-    <Card>
+    <div className={styles.card}>
       <h3>Asset Breakdown</h3>
       {view === 'list' ? (
-        <List>
+        <ul className={styles.list}>
           {assets.map((asset) => (
-            <ListItem key={asset.symbol}>
+            <li className={styles.listItem} key={asset.symbol}>
               <span style={{ color: asset.color }}>{asset.symbol}</span>
               <span>{asset.percentage}%</span>
-            </ListItem>
+            </li>
           ))}
-        </List>
+        </ul>
       ) : (
-        <Chart style={{ background: `conic-gradient(${gradient})` }} />
+        <div
+          className={styles.chart}
+          style={{ background: `conic-gradient(${gradient})` }}
+        />
       )}
-    </Card>
+    </div>
   );
 }
 
