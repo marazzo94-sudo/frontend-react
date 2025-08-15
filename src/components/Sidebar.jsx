@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styles from './Sidebar.module.scss';
 
 const Container = styled.aside`
   width: 220px;
@@ -43,15 +43,22 @@ const defaultItems = [
 
 function Sidebar({ items = defaultItems }) {
   return (
-    <Container data-testid="sidebar">
-      <Title>SIGNALS</Title>
+    <aside className={styles.container} data-testid="sidebar">
+      <h1 className={styles.title}>SIGNALS</h1>
       {items.map((item) => (
-        <Item key={item.to} to={item.to}>
+        <NavLink
+          key={item.to}
+          to={item.to}
+          className={({ isActive }) =>
+            isActive ? `${styles.item} ${styles.active}` : styles.item
+          }
+        >
           {item.icon}
           {item.label}
-        </Item>
+        </NavLink>
       ))}
-    </Container>
+    </aside>
+
   );
 }
 
