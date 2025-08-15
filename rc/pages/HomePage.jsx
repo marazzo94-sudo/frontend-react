@@ -1,11 +1,28 @@
 import React from 'react';
 import useCryptoData from '../hooks/useCryptoData';
+import LoadingIndicator from '../components/LoadingIndicator';
+import EmptyState from '../components/EmptyState';
 
 function HomePage() {
   const { data: coins, loading, error } = useCryptoData();
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Failed to load data</div>;
+  if (loading) {
+    return <LoadingIndicator />;
+  }
+
+  if (error) {
+    return (
+      <EmptyState
+        message="Failed to load data"
+        action={() => window.location.reload()}
+        actionLabel="Retry"
+      />
+    );
+  }
+
+  if (!coins || coins.length === 0) {
+    return <EmptyState message="No data available" />;
+  }
 
   return (
     <div>
@@ -20,4 +37,5 @@ function HomePage() {
     </div>
   );
 }
+
 export default HomePage;
