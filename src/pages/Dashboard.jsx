@@ -1,10 +1,10 @@
 import React from 'react';
-import PortfolioChart from '../components/PortfolioChart';
-import AssetBreakdownCard from '../components/AssetBreakdownCard';
-import TradeHistoryTable from '../components/TradeHistoryTable';
+import PortfolioChart from '../components/charts/PortfolioChart';
+import AssetBreakdownCard from '../components/charts/AssetBreakdownCard';
+import TradeHistoryTable from '../components/tables/TradeHistoryTable';
 import useCryptoData from '../hooks/useCryptoData';
-import LoadingIndicator from '../components/LoadingIndicator';
-import EmptyState from '../components/EmptyState';
+import LoadingIndicator from '../components/common/LoadingIndicator';
+import EmptyState from '../components/common/EmptyState';
 import styles from './Dashboard.module.scss';
 
 function Dashboard() {
