@@ -1,36 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Container = styled.aside`
-  width: 220px;
-  background: #0b0d21;
-  color: #fff;
-  height: 100vh;
-  padding-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Title = styled.h1`
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0 1.5rem;
-  margin-bottom: 2rem;
-`;
-
-const Item = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-
-  &.active {
-    background: rgba(255, 255, 255, 0.1);
-  }
-`;
+import styles from './Sidebar.module.scss';
 
 const defaultItems = [
   { label: 'Dashboard', to: '/dashboard', icon: '📊' },
@@ -43,15 +12,22 @@ const defaultItems = [
 
 function Sidebar({ items = defaultItems }) {
   return (
-    <Container data-testid="sidebar">
-      <Title>SIGNALS</Title>
+    <aside className={styles.container} data-testid="sidebar">
+      <h1 className={styles.title}>SIGNALS</h1>
       {items.map((item) => (
-        <Item key={item.to} to={item.to}>
+        <NavLink
+          key={item.to}
+          to={item.to}
+          className={({ isActive }) =>
+            isActive ? `${styles.item} ${styles.active}` : styles.item
+          }
+        >
           {item.icon}
           {item.label}
-        </Item>
+        </NavLink>
       ))}
-    </Container>
+    </aside>
+
   );
 }
 

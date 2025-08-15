@@ -6,7 +6,7 @@ import Market from './pages/Market';
 import Messages from './pages/Messages';
 import Portfolio from './pages/Portfolio';
 import Settings from './pages/Settings';
-import ThemeToggle from './components/ThemeToggle';
+import ThemeToggle from './components/common/ThemeToggle';
 import Sidebar from './components/Sidebar';
 import styles from './App.module.scss';
 
