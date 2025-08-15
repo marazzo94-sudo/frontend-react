@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PortfolioChart from '../components/PortfolioChart';
 import AssetBreakdownCard from '../components/AssetBreakdownCard';
 import TradeHistoryTable from '../components/TradeHistoryTable';

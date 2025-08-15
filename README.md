@@ -14,6 +14,10 @@ Source files are located in the `src/` directory with the following structure:
 ```
 src/
   components/
+    common/
+    layout/
+    charts/
+    tables/
   pages/
   hooks/
   context/
