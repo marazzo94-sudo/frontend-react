@@ -9,10 +9,10 @@ npm install
 npm run dev
 ```
 
-Source files are located in the `rc/` directory with the following structure:
+Source files are located in the `src/` directory with the following structure:
 
 ```
-rc/
+src/
   components/
   pages/
   hooks/
