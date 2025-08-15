@@ -1,23 +1,12 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Nav = styled.nav`
-  background: #333;
-  padding: 1rem;
-`;
-
-const StyledLink = styled(Link)`
-  color: #fff;
-  margin-right: 1rem;
-  text-decoration: none;
-`;
+import styles from './NavBar.module.scss';
 
 function NavBar() {
   return (
-    <Nav>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/dashboard">Dashboard</StyledLink>
-    </Nav>
+    <nav className={styles.nav}>
+      <Link className={styles.link} to="/">Home</Link>
+      <Link className={styles.link} to="/dashboard">Dashboard</Link>
+    </nav>
   );
 }
 
