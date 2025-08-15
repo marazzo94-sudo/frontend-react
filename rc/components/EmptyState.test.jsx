@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 import EmptyState from './EmptyState';
 
 describe('EmptyState', () => {
