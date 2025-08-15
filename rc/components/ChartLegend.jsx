@@ -1,46 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const LegendContainer = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-`;
-
-const LegendItem = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  opacity: ${(p) => (p.visible ? 1 : 0.5)};
-`;
-
-const ColorBadge = styled.span`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: ${(p) => p.color};
-`;
+import styles from './ChartLegend.module.scss';
 
 function ChartLegend({ items, onToggle }) {
   return (
-    <LegendContainer>
+    <div className={styles.legendContainer}>
       {items.map((item) => (
-        <LegendItem
+        <button
           key={item.label}
-          visible={item.visible}
           type="button"
+          className={`${styles.legendItem} ${item.visible ? '' : styles.legendItemHidden}`}
           onClick={() => onToggle(item.label)}
           aria-label={`toggle ${item.label}`}
           aria-pressed={item.visible}
         >
-          <ColorBadge color={item.color} />
+          <span className={styles.colorBadge} style={{ background: item.color }} />
           <span>{item.label}</span>
-        </LegendItem>
+        </button>
       ))}
-    </LegendContainer>
+    </div>
   );
 }
 
