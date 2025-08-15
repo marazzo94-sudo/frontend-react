@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+  import PortfolioChart from '../components/PortfolioChart';
 import AssetBreakdownCard from '../components/AssetBreakdownCard';
 import TradeHistoryTable from '../components/TradeHistoryTable';
 import useCryptoData from '../hooks/useCryptoData';
@@ -57,6 +58,7 @@ function Dashboard() {
         <SummaryCard>Total Balance: $10,000</SummaryCard>
         <SummaryCard>24h Change: +5%</SummaryCard>
         <AssetBreakdownCard assets={assets} />
+  <PortfolioChart />
       </Grid>
 
       <h2>Crypto Markets</h2>
