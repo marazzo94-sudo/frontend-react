@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeToggle } from '../common';
+// import { ThemeToggle } from '../common';
 import styles from './TopBar.module.scss';
 
 function TopBar({ stats = [], user, theme, toggleTheme }) {
@@ -13,9 +13,9 @@ function TopBar({ stats = [], user, theme, toggleTheme }) {
         ))}
       </div>
       <div className={styles.actions}>
-        {theme && toggleTheme && (
+        {/* {theme && toggleTheme && (
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        )}
+        )} */}
         {user && (
           <div className={styles.userArea}>
             {user.avatar && (
