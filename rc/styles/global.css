@@ -1,13 +1,14 @@
 :root {
-  --color-bg: #121212;
+  --color-bg: #0d0b33;
   --color-text: #ffffff;
-  --color-primary: #1e88e5;
+  --color-primary: #00d1b2;
   --font-family-base: 'Inter', sans-serif;
 }
 
 [data-theme='light'] {
-  --color-bg: #ffffff;
+  --color-bg: #f4f0ff;
   --color-text: #121212;
+  --color-primary: #5865f2;
 }
 
 * {
