@@ -1,7 +1,7 @@
 .container {
   width: 220px;
-  background: #0b0d21;
-  color: #fff;
+  background: var(--color-surface);
+  color: var(--color-text);
   height: 100vh;
   padding-top: 1.5rem;
   display: flex;
@@ -20,11 +20,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #fff;
+  color: var(--color-text);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
 }
 
 .active {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-border);
 }
