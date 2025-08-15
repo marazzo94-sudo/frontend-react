@@ -1,30 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import styled from 'styled-components';
 import Button from './Button';
-
-const TableContainer = styled.div`
-  max-height: 300px;
-  overflow-y: auto;
-`;
-
-const StyledTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-`;
-
-const Th = styled.th`
-  cursor: pointer;
-  padding: 0.5rem;
-  text-align: left;
-  background: #f0f0f0;
-  position: sticky;
-  top: 0;
-`;
-
-const Td = styled.td`
-  padding: 0.5rem;
-  border-top: 1px solid #ddd;
-`;
+import styles from './TradeHistoryTable.module.scss';
 
 function TradeHistoryTable({ trades = [] }) {
   const [sortConfig, setSortConfig] = useState({ key: 'date', direction: 'desc' });
@@ -62,33 +38,37 @@ function TradeHistoryTable({ trades = [] }) {
 
   return (
     <div>
-      <TableContainer>
-        <StyledTable>
+      <div className={styles.tableContainer}>
+        <table className={styles.table}>
           <thead>
             <tr>
-              <Th onClick={() => requestSort('pair')}>Pair</Th>
-              <Th onClick={() => requestSort('price')}>Price</Th>
-              <Th onClick={() => requestSort('amount')}>Amount</Th>
-              <Th onClick={() => requestSort('action')}>Action</Th>
-              <Th onClick={() => requestSort('date')}>Date</Th>
+              <th className={styles.th} onClick={() => requestSort('pair')}>Pair</th>
+              <th className={styles.th} onClick={() => requestSort('price')}>Price</th>
+              <th className={styles.th} onClick={() => requestSort('amount')}>Amount</th>
+              <th className={styles.th} onClick={() => requestSort('action')}>Action</th>
+              <th className={styles.th} onClick={() => requestSort('date')}>Date</th>
             </tr>
           </thead>
           <tbody>
             {paginatedTrades.map((trade, idx) => (
               <tr key={idx}>
-                <Td>{trade.pair}</Td>
-                <Td>{trade.price}</Td>
-                <Td>{trade.amount}</Td>
-                <Td>{trade.action}</Td>
-                <Td>{new Date(trade.date).toLocaleString()}</Td>
+                <td className={styles.td}>{trade.pair}</td>
+                <td className={styles.td}>{trade.price}</td>
+                <td className={styles.td}>{trade.amount}</td>
+                <td className={styles.td}>{trade.action}</td>
+                <td className={styles.td}>{new Date(trade.date).toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
-        </StyledTable>
-      </TableContainer>
+        </table>
+      </div>
       {pageCount > 1 && (
-        <div style={{ marginTop: '0.5rem' }}>
-          <Button onClick={prevPage} disabled={currentPage === 0} style={{ marginRight: '0.5rem' }}>
+        <div className={styles.pagination}>
+          <Button
+            onClick={prevPage}
+            disabled={currentPage === 0}
+            className={styles.prevButton}
+          >
             Previous
           </Button>
           <span>
@@ -97,7 +77,7 @@ function TradeHistoryTable({ trades = [] }) {
           <Button
             onClick={nextPage}
             disabled={currentPage >= pageCount - 1}
-            style={{ marginLeft: '0.5rem' }}
+            className={styles.nextButton}
           >
             Next
           </Button>

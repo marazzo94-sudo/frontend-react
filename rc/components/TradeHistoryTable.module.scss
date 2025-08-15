@@ -1,0 +1,35 @@
+.tableContainer {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  cursor: pointer;
+  padding: 0.5rem;
+  text-align: left;
+  background: #f0f0f0;
+  position: sticky;
+  top: 0;
+}
+
+.td {
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.pagination {
+  margin-top: 0.5rem;
+}
+
+.prevButton {
+  margin-right: 0.5rem;
+}
+
+.nextButton {
+  margin-left: 0.5rem;
+}
