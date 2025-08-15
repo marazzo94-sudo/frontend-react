@@ -5,20 +5,17 @@ import '@testing-library/jest-dom/vitest';
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {
-  it('renders provided items', () => {
-    const items = [
-      { label: 'Home', to: '/' },
-      { label: 'Dashboard', to: '/dashboard' },
-    ];
-
+  it('renders default navigation items', () => {
     const { getByText } = render(
       <MemoryRouter>
-        <Sidebar items={items} />
+        <Sidebar />
       </MemoryRouter>
     );
 
-    items.forEach((item) => {
-      expect(getByText(item.label)).toBeInTheDocument();
-    });
+    ['Dashboard', 'News', 'Market', 'Messages', 'Portfolio', 'Settings'].forEach(
+      (label) => {
+        expect(getByText(label)).toBeInTheDocument();
+      }
+    );
   });
 });
