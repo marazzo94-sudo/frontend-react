@@ -22,6 +22,9 @@ src/
   hooks/
   context/
   assets/
+    images/
+    icons/
+    fonts/
   utils/
 ```
 Import any shared UI elements from `src/components`.
