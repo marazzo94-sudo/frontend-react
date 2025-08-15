@@ -1,0 +1,24 @@
+:root {
+  --color-bg: #121212;
+  --color-text: #ffffff;
+  --color-primary: #1e88e5;
+  --font-family-base: 'Inter', sans-serif;
+}
+
+[data-theme='light'] {
+  --color-bg: #ffffff;
+  --color-text: #121212;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}

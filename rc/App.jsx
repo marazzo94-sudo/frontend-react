@@ -6,8 +6,8 @@ const Container = styled.div`
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
-  color: #fff;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 `;
 
 function App() {
