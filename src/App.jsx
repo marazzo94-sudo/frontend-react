@@ -7,7 +7,7 @@ import Messages from './pages/Messages';
 import Portfolio from './pages/Portfolio';
 import Settings from './pages/Settings';
 import ThemeToggle from './components/common/ThemeToggle';
-import Sidebar from './components/layout/Sidebar';
+import Sidebar from './components/Sidebar';
 import styles from './App.module.scss';
 
 function App() {
