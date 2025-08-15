@@ -1,3 +1,7 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Dashboard from './pages/Dashboard';
+import NavBar from './components/NavBar';
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
@@ -22,12 +26,21 @@ function App() {
   };
 
   return (
+
+   <BrowserRouter>
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <Container>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <h1>Crypto Dashboard Starter</h1>
+ <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
       </Container>
     </ThemeProvider>
+ </BrowserRouter>
+
   );
 }
 
