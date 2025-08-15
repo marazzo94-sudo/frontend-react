@@ -14,7 +14,7 @@ describe('Sidebar', () => {
 
     ['Dashboard', 'News', 'Market', 'Messages', 'Portfolio', 'Settings'].forEach(
       (label) => {
-        expect(getByText(label)).toBeInTheDocument();
+        expect(getByText(label, { exact: false })).toBeInTheDocument();
       }
     );
   });

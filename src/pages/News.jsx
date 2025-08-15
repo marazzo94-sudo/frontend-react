@@ -1,7 +1,8 @@
 import React from 'react';
+import NewsDigest from '../components/NewsDigest';
 
 function News() {
-  return <div>News Page</div>;
+  return <NewsDigest />;
 }
 
 export default News;

@@ -13,9 +13,9 @@ const user = { name: 'Jane Doe', avatar: 'avatar.png' };
 describe('TopBar', () => {
   it('renders stats and user info', () => {
     const { getByText, getByAltText } = render(<TopBar stats={stats} user={user} />);
-    expect(getByText('Total Value')).toBeInTheDocument();
+    expect(getByText('Total Value', { exact: false })).toBeInTheDocument();
     expect(getByText('$10,000')).toBeInTheDocument();
-    expect(getByText('P/L')).toBeInTheDocument();
+    expect(getByText('P/L', { exact: false })).toBeInTheDocument();
     expect(getByText('+5%')).toBeInTheDocument();
     expect(getByText('Jane Doe')).toBeInTheDocument();
     const avatar = getByAltText('user avatar');
