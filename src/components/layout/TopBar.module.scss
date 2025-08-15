@@ -4,9 +4,8 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-
+  background: #fff;
+  border-bottom: 1px solid #ddd;
   z-index: 1000;
 }
 
@@ -15,8 +14,7 @@
 }
 
 .statBadge {
-  background: var(--color-bg);
-
+  background: #f0f0f0;
   margin-right: 0.5rem;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;

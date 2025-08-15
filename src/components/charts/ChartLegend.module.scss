@@ -1,0 +1,4 @@
+.legendContainer { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.legendItem { display: flex; align-items: center; gap: 0.25rem; border: none; background: transparent; cursor: pointer; }
+.legendItemHidden { opacity: 0.5; }
+.colorBadge { width: 12px; height: 12px; border-radius: 50%; }

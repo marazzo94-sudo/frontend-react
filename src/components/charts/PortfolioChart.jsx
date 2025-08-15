@@ -3,10 +3,9 @@ import ChartLegend from './ChartLegend';
 
 function PortfolioChart() {
   const [items, setItems] = useState([
-    { label: 'Stocks', color: 'var(--color-accent-1)', visible: true },
-    { label: 'Bonds', color: 'var(--color-accent-2)', visible: true },
-    { label: 'Crypto', color: 'var(--color-accent-3)', visible: true },
-
+    { label: 'Stocks', color: '#1e90ff', visible: true },
+    { label: 'Bonds', color: '#ff6347', visible: true },
+    { label: 'Crypto', color: '#32cd32', visible: true },
   ]);
 
   const handleToggle = (label) => {
