@@ -1,11 +1,16 @@
 import React from 'react';
-import Button from './Button';
+import styles from './ThemeToggle.module.scss';
 
 function ThemeToggle({ theme, toggleTheme }) {
   return (
-    <Button onClick={toggleTheme}>
-      Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
-    </Button>
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      onClick={toggleTheme}
+      className={`${styles.toggle} ${theme === 'light' ? styles.light : styles.dark}`}
+    >
+      <span className={styles.ball} />
+    </button>
   );
 }
 
