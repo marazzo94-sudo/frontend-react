@@ -1,31 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const Label = styled.span`
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-`;
-
-const Current = styled.span`
-  font-size: 1.2rem;
-`;
-
-const Change = styled.span`
-  font-size: 0.9rem;
-  color: ${(props) => props.$color};
-`;
+import styles from './MetricComparison.module.scss';
 
 function MetricComparison({ label, current, previous, period }) {
   const difference = current - previous;
@@ -36,16 +10,16 @@ function MetricComparison({ label, current, previous, period }) {
   const sign = percent > 0 ? '+' : '';
 
   return (
-    <Wrapper>
-      <Label>{label}</Label>
-      <Row>
-        <Current>{current}</Current>
-        <Change $color={color}>
+    <div className={styles.wrapper}>
+      <span className={styles.label}>{label}</span>
+      <div className={styles.row}>
+        <span className={styles.current}>{current}</span>
+        <span className={styles.change} style={{ color }}>
           {sign}{percent.toFixed(2)}%
-        </Change>
-      </Row>
+        </span>
+      </div>
       <small>vs last {period}</small>
-    </Wrapper>
+    </div>
   );
 }
 
