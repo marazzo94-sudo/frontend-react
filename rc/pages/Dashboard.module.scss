@@ -1,0 +1,11 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.summaryCard {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+}

@@ -1,23 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-  import PortfolioChart from '../components/PortfolioChart';
+import PortfolioChart from '../components/PortfolioChart';
 import AssetBreakdownCard from '../components/AssetBreakdownCard';
 import TradeHistoryTable from '../components/TradeHistoryTable';
 import useCryptoData from '../hooks/useCryptoData';
 import LoadingIndicator from '../components/LoadingIndicator';
 import EmptyState from '../components/EmptyState';
-
-const Grid = styled.div`
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-`;
-
-const SummaryCard = styled.div`
-  background: #1e1e1e;
-  padding: 1rem;
-  border-radius: 8px;
-`;
+import styles from './Dashboard.module.scss';
 
 function Dashboard() {
   const sampleTrades = [
@@ -54,12 +42,12 @@ function Dashboard() {
 
   return (
     <div>
-      <Grid>
-        <SummaryCard>Total Balance: $10,000</SummaryCard>
-        <SummaryCard>24h Change: +5%</SummaryCard>
+      <div className={styles.grid}>
+        <div className={styles.summaryCard}>Total Balance: $10,000</div>
+        <div className={styles.summaryCard}>24h Change: +5%</div>
         <AssetBreakdownCard assets={assets} />
-  <PortfolioChart />
-      </Grid>
+        <PortfolioChart />
+      </div>
 
       <h2>Crypto Markets</h2>
       <ul>
