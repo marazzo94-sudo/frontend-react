@@ -2,22 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import NavBar from './components/NavBar';
-import React, { useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from './theme';
+import React, { useState, useEffect } from 'react';
 import ThemeToggle from './components/ThemeToggle';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.text};
-  background-color: var(--color-bg);
-  color: var(--color-text);
-`;
+import styles from './App.module.scss';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -25,22 +12,27 @@ function App() {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  return (
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+  }, [theme]);
 
-   <BrowserRouter>
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
-      <Container>
+  return (
+    <BrowserRouter>
+      <div className={styles.container}>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <h1>Crypto Dashboard Starter</h1>
- <NavBar />
+        <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-      </Container>
-    </ThemeProvider>
- </BrowserRouter>
-
+      </div>
+    </BrowserRouter>
   );
 }
 
