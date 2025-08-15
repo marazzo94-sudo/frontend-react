@@ -1,5 +1,5 @@
 import React from 'react';
-import ThemeToggle from '../common/ThemeToggle';
+import { ThemeToggle } from '../common';
 import styles from './TopBar.module.scss';
 
 function TopBar({ stats = [], user, theme, toggleTheme }) {

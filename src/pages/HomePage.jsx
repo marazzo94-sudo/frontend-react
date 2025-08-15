@@ -1,7 +1,6 @@
 import React from 'react';
 import useCryptoData from '../hooks/useCryptoData';
-import LoadingIndicator from '../components/LoadingIndicator';
-import EmptyState from '../components/EmptyState';
+import { EmptyState, LoadingIndicator } from '../components';
 
 function HomePage() {
   const { data: coins, loading, error } = useCryptoData();
