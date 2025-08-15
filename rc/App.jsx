@@ -1,20 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import ThemeToggle from './components/ThemeToggle';
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
-  color: #fff;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
 `;
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
-    <Container>
-      <h1>Crypto Dashboard Starter</h1>
-    </Container>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <Container>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        <h1>Crypto Dashboard Starter</h1>
+      </Container>
+    </ThemeProvider>
   );
 }
 
