@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.scss';
 
-
 const defaultItems = [
   { label: 'Dashboard', to: '/dashboard', icon: '📊' },
   { label: 'News', to: '/news', icon: '📰' },
