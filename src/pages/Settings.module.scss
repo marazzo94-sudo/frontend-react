@@ -15,14 +15,14 @@
   gap: 0.5rem;
 }
 
-.upgradeButton {
-  background: var(--color-primary);
-  border: none;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .upgradeButton {
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-black);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
 .tabs {
   display: flex;
@@ -45,16 +45,16 @@
   border-color: var(--color-primary);
 }
 
-.notice {
-  background: var(--color-negative);
-  color: #fff;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
+  .notice {
+    background: var(--color-negative);
+    color: var(--color-white);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 
 .notice button {
   background: var(--color-surface);
@@ -133,12 +133,12 @@
   text-align: right;
 }
 
-.saveButton {
-  background: var(--color-primary);
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .saveButton {
+    background: var(--color-primary);
+    color: var(--color-black);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 

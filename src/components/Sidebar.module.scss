@@ -8,7 +8,7 @@
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sidebar);
   animation: slide-in 0.3s ease-out;
 
   @include mobile {

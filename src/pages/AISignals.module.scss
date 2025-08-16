@@ -5,22 +5,22 @@
    gap: 1rem;
  }
 
- .signalCard {
-   border-radius: 8px;
-   padding: 1rem 1.5rem;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-   animation: fadeIn 0.6s ease forwards;
- }
+   .signalCard {
+     border-radius: 8px;
+     padding: 1rem 1.5rem;
+     box-shadow: var(--shadow-sm);
+     animation: fadeIn 0.6s ease forwards;
+   }
 
  .buy {
    background: var(--color-accent-3);
    color: var(--color-bg);
  }
 
- .sell {
-   background: var(--color-negative);
-   color: #fff;
- }
+   .sell {
+     background: var(--color-negative);
+     color: var(--color-white);
+   }
 
  @keyframes fadeIn {
    from {
