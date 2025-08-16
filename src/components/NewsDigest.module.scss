@@ -1,6 +1,6 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: var(--space-md);
   max-height: 70vh;
   overflow-y: auto;
@@ -8,8 +8,11 @@
 }
 
 .card {
-  display: block;
-  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   border: var(--border-width) solid var(--color-border);
@@ -24,12 +27,26 @@
   box-shadow: var(--shadow-md);
 }
 
-.card h3 {
+.content {
+  flex: 1;
+}
+
+.domain {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
   margin-bottom: var(--space-xs);
 }
 
+.thumbnail {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
 .caughtUp {
-  grid-column: 1 / -1;
   text-align: center;
   margin-top: var(--space-md);
   font-style: italic;
