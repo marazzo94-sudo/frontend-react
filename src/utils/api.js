@@ -1,5 +1,6 @@
 export async function fetchCoins() {
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd';
+  const url =
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true&price_change_percentage=24h';
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error('Failed to fetch coins');

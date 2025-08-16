@@ -1,0 +1,66 @@
+.card {
+  position: relative;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px var(--color-primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.price {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.sparkline {
+  margin-top: 0.5rem;
+  height: 40px;
+}
+
+.live {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-3);
+  box-shadow: 0 0 8px var(--color-accent-3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+.positive {
+  color: var(--color-accent-3);
+}
+
+.negative {
+  color: var(--color-negative);
+}

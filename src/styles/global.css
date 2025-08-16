@@ -39,7 +39,11 @@
 
 body {
   font-family: var(--font-family-base);
-  background: var(--color-bg);
+  background: radial-gradient(circle at top left, #1a1d32, #0d0f2b);
   color: var(--color-text);
   line-height: 1.5;
+}
+
+[data-theme='light'] body {
+  background: radial-gradient(circle at top left, #f5f3ff, #e0e8ff);
 }
