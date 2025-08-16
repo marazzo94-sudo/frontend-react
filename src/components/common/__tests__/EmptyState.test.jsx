@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import EmptyState from './EmptyState';
+import EmptyState from '../EmptyState';
 
 describe('EmptyState', () => {
   it('renders message and optional action', () => {

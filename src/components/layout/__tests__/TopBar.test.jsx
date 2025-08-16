@@ -2,7 +2,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/vitest';
-import TopBar from './TopBar';
+import TopBar from '../TopBar';
 
 const stats = [
   { label: 'Total Value', value: '$10,000' },

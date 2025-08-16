@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import NewsDigest from './NewsDigest';
+import NewsDigest from '../NewsDigest';
 
 const mockArticles = [
   { title: 'Article 1', description: 'Desc 1', url: '1' },

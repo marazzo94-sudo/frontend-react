@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import ChartLegend from './ChartLegend';
+import ChartLegend from '../ChartLegend';
 
 const sampleItems = [
   { label: 'Stocks', color: 'var(--color-accent-1)', visible: true },

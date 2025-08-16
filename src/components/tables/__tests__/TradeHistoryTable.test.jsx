@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import TradeHistoryTable from './TradeHistoryTable';
-import { fetchTrades } from '../../utils/api';
+import TradeHistoryTable from '../TradeHistoryTable';
+import { fetchTrades } from '../../../utils/api';
 
 describe('TradeHistoryTable', () => {
   it('sorts and paginates fetched trades', async () => {

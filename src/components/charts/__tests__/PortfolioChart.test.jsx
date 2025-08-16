@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import PortfolioChart from './PortfolioChart';
+import PortfolioChart from '../PortfolioChart';
 
 // Stub ResizeObserver for Recharts' ResponsiveContainer
 beforeAll(() => {

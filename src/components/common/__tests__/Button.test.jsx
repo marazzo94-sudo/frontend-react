@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import Button from './Button';
+import Button from '../Button';
 
 describe('Button', () => {
   it('renders and handles onClick', () => {
