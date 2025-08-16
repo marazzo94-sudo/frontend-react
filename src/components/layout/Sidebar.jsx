@@ -10,6 +10,14 @@ const Container = styled.aside`
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--color-border);
+
+  @media (max-width: 600px) {
+    position: fixed;
+    top: 0;
+    left: ${(props) => (props.open ? '0' : '-220px')};
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
 `;
 
 const Title = styled.h1`
@@ -49,9 +57,9 @@ const defaultItems = [
   { label: 'Settings', to: '/settings' },
 ];
 
-function Sidebar({ items = defaultItems }) {
+function Sidebar({ items = defaultItems, open }) {
   return (
-    <Container data-testid="sidebar">
+    <Container data-testid="sidebar" open={open} data-open={open}>
       <Title>SIGNALS</Title>
       {items.map((item) => (
         <Item key={item.to} to={item.to}>

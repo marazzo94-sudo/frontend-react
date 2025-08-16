@@ -11,8 +11,14 @@ import styles from './App.module.scss';
 
 function App() {
   const [theme, setTheme] = useState('dark');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const toggleTheme = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(prev => !prev);
   };
 
   useEffect(() => {
@@ -27,9 +33,13 @@ function App() {
   return (
     <BrowserRouter>
       <div className={styles.container}>
-        <Sidebar />
+        <Sidebar open={sidebarOpen} />
         <div className={styles.content}>
-          <TopBar theme={theme} toggleTheme={toggleTheme} />
+          <TopBar
+            theme={theme}
+            toggleTheme={toggleTheme}
+            toggleSidebar={toggleSidebar}
+          />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />

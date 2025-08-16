@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/vitest';
 import TopBar from './TopBar';
@@ -38,6 +38,18 @@ describe('TopBar', () => {
     );
     const button = getByRole('button', { name: /toggle theme/i });
     expect(button).toBeInTheDocument();
+  });
+
+  it('calls toggleSidebar when hamburger is clicked', () => {
+    const toggleSidebar = vi.fn();
+    const { getByLabelText } = render(
+      <MemoryRouter>
+        <TopBar toggleSidebar={toggleSidebar} />
+      </MemoryRouter>
+    );
+    const button = getByLabelText(/toggle sidebar/i);
+    fireEvent.click(button);
+    expect(toggleSidebar).toHaveBeenCalled();
   });
 });
 
