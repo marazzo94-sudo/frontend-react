@@ -21,7 +21,7 @@ const icons = {
       <path d="M5 9v10h2V9H5zm4 4v6h2v-6H9zm4-6v12h2V7h-2zm4 8v4h2v-4h-2z" />
     </svg>
   ),
-  messages: (
+    signals: (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
       <path d="M21 6h-2v9H6v2h9l5 5V6zM17 2H3v14l4-4h10V2z" />
     </svg>
@@ -42,7 +42,7 @@ const defaultItems = [
   { label: 'Dashboard', to: '/dashboard', icon: icons.dashboard },
   { label: 'News', to: '/news', icon: icons.news },
   { label: 'Market', to: '/market', icon: icons.market },
-  { label: 'Messages', to: '/messages', icon: icons.messages },
+    { label: 'AI Signals', to: '/signals', icon: icons.signals },
   { label: 'Portfolio', to: '/portfolio', icon: icons.portfolio },
   { label: 'Settings', to: '/settings', icon: icons.settings },
 ];

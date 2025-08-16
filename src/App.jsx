@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Dashboard from './pages/Dashboard';
 import News from './pages/News';
 import Market from './pages/Market';
-import Messages from './pages/Messages';
+import AISignals from './pages/AISignals';
 import Portfolio from './pages/Portfolio';
 import Settings from './pages/Settings';
 import { Sidebar, TopBar } from './components';
@@ -45,7 +45,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/news" element={<News />} />
             <Route path="/market" element={<Market />} />
-            <Route path="/messages" element={<Messages />} />
+              <Route path="/signals" element={<AISignals />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
