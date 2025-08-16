@@ -7,6 +7,7 @@ import {
   TradeHistoryTable,
 } from '../components';
 import useCryptoData from '../hooks/useCryptoData';
+import { formatNumber } from '../utils/format';
 import styles from './Dashboard.module.scss';
 
 function Dashboard() {
@@ -24,6 +25,24 @@ function Dashboard() {
   ];
 
   const { data, loading, error } = useCryptoData();
+
+  const holdings = {
+    btc: 0.5,
+    eth: 2,
+    ada: 1000,
+  };
+
+  const totalBalance = data.reduce((sum, coin) => {
+    const amount = holdings[coin.symbol];
+    if (!amount) return sum;
+    return sum + amount * coin.current_price;
+  }, 0);
+
+  const totalChange = data.reduce((sum, coin) => {
+    const amount = holdings[coin.symbol];
+    if (!amount) return sum;
+    return sum + amount * coin.price_change_24h;
+  }, 0);
 
   if (loading) {
     return <LoadingIndicator />;
@@ -46,8 +65,12 @@ function Dashboard() {
   return (
     <div>
       <div className={styles.grid}>
-        <div className={styles.summaryCard}>Total Balance: $10,000</div>
-        <div className={styles.summaryCard}>24h Change: +5%</div>
+        <div className={styles.summaryCard}>
+          Total Balance: ${formatNumber(totalBalance)}
+        </div>
+        <div className={styles.summaryCard}>
+          24h Change: {totalChange >= 0 ? '+' : '-'}${formatNumber(Math.abs(totalChange))}
+        </div>
         <AssetBreakdownCard assets={assets} />
         <PortfolioChart />
       </div>
