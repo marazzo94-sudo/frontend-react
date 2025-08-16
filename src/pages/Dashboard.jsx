@@ -2,9 +2,10 @@ import React from 'react';
 import {
   AssetBreakdownCard,
   EmptyState,
-  LoadingIndicator,
   PortfolioChart,
   TradeHistoryTable,
+  SummaryCardSkeleton,
+  TableSkeleton,
 } from '../components';
 import useCryptoData from '../hooks/useCryptoData';
 import styles from './Dashboard.module.scss';
@@ -26,7 +27,20 @@ function Dashboard() {
   const { data, loading, error } = useCryptoData();
 
   if (loading) {
-    return <LoadingIndicator />;
+    return (
+      <div>
+        <div className={styles.grid}>
+          <SummaryCardSkeleton className={styles.skeletonCard} />
+          <SummaryCardSkeleton className={styles.skeletonCard} />
+          <SummaryCardSkeleton className={styles.skeletonCard} />
+          <SummaryCardSkeleton className={styles.skeletonCard} />
+        </div>
+        <h2>Crypto Markets</h2>
+        <TableSkeleton rows={3} className={styles.tableSkeletonRow} />
+        <h2>Recent Trades</h2>
+        <TableSkeleton rows={3} className={styles.tableSkeletonRow} />
+      </div>
+    );
   }
 
   if (error) {

@@ -10,3 +10,30 @@
   padding: 1rem;
   border-radius: 8px;
 }
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.skeletonCard {
+  @extend .summaryCard;
+  animation: pulse 1.5s ease-in-out infinite;
+  color: transparent;
+}
+
+.tableSkeletonRow {
+  width: 100%;
+  height: 1.25rem;
+  border-radius: 4px;
+  background: var(--color-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
