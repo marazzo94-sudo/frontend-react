@@ -1,34 +1,26 @@
-import { describe, it, expect, beforeAll } from 'vitest';
-import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 import PortfolioChart from './PortfolioChart';
 
-// Stub ResizeObserver for Recharts' ResponsiveContainer
-beforeAll(() => {
-  global.ResizeObserver = class {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  };
-});
-
 describe('PortfolioChart', () => {
-  it('renders a chart svg', () => {
+  it('renders a chart svg', async () => {
     const { container } = render(
       <div style={{ width: 800, height: 400 }}>
         <PortfolioChart />
       </div>
     );
-    expect(container.querySelector('svg')).toBeInTheDocument();
+    await waitFor(() => expect(container.querySelector('svg')).toBeInTheDocument());
   });
 
-  it('matches snapshot', () => {
-    const { asFragment } = render(
+  it('matches snapshot', async () => {
+    const { container } = render(
       <div style={{ width: 800, height: 400 }}>
         <PortfolioChart />
       </div>
     );
-    expect(asFragment()).toMatchSnapshot();
+    await waitFor(() => expect(container.querySelector('svg')).toBeInTheDocument());
+    expect(container).toMatchSnapshot();
   });
 });
 

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 import Dashboard from '../Dashboard';
@@ -9,6 +9,9 @@ vi.mock('../../hooks/useCryptoData', () => ({
 }));
 
 describe('Dashboard', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
   it('renders loading indicator while fetching data', () => {
     useCryptoData.mockReturnValue({ data: [], loading: true, error: null });
     render(<Dashboard />);
@@ -22,19 +25,36 @@ describe('Dashboard', () => {
     expect(screen.getByRole('button', { name: /retry/i })).toBeInTheDocument();
   });
 
-  it('displays summary cards, market list, and trade history on success', async () => {
-    const mockData = [
-      { id: 'btc', name: 'Bitcoin', current_price: 50000 },
-      { id: 'eth', name: 'Ethereum', current_price: 4000 },
-    ];
-    useCryptoData.mockReturnValue({ data: mockData, loading: false, error: null });
-    render(<Dashboard />);
+    it('displays summary cards, market list, and trade history on success', async () => {
+      vi.useFakeTimers();
+      const mockData = [
+        {
+          id: 'btc',
+          name: 'Bitcoin',
+          symbol: 'btc',
+          current_price: 50000,
+          price_change_24h: 1000,
+          sparkline_in_7d: { price: [] },
+        },
+        {
+          id: 'eth',
+          name: 'Ethereum',
+          symbol: 'eth',
+          current_price: 4000,
+          price_change_24h: 0,
+          sparkline_in_7d: { price: [] },
+        },
+      ];
+      useCryptoData.mockReturnValue({ data: mockData, loading: false, error: null });
+      render(<Dashboard />);
+      vi.runAllTimers();
 
-    expect(screen.getByText('Total Balance: $10,000')).toBeInTheDocument();
-    expect(screen.getByText('24h Change: +5%')).toBeInTheDocument();
-    expect(screen.getByText('Bitcoin - $50000')).toBeInTheDocument();
-    // TradeHistoryTable renders fetched trade
-    expect(await screen.findByText('BTC/USD')).toBeInTheDocument();
+      expect(await screen.findByText('Total Balance: $33,000')).toBeInTheDocument();
+      expect(await screen.findByText('24h Change: +$500')).toBeInTheDocument();
+      expect(screen.getByText('BTC')).toBeInTheDocument();
+      expect(screen.getByText('$50,000')).toBeInTheDocument();
+      // TradeHistoryTable renders fetched trade
+      expect(await screen.findByText('BTC/USD')).toBeInTheDocument();
+    });
   });
-});
 
