@@ -1,30 +1,29 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./NewsDigest.module.scss";
+
+const mockArticles = [
+  {
+    url: "https://cointelegraph.com/",
+    title: "Bitcoin tops $70K for the first time 🚀",
+    description: "Market optimism pushes BTC above its all-time high.",
+  },
+  {
+    url: "https://decrypt.co/",
+    title: "Ethereum upgrade boosts transactions ⚡",
+    description: "ETH network speed improves following latest update.",
+  },
+  {
+    url: "https://cryptoslate.com/",
+    title: "Solana gains 12% amid NFT market surge 🎨",
+    description: "SOL rallies as NFT trading volume jumps.",
+  },
+];
 
 function NewsDigest() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [atEnd, setAtEnd] = useState(false);
-
-  // Mock data (replace with API later if needed)
-  const mockArticles = [
-    {
-      url: "https://cointelegraph.com/",
-      title: "Bitcoin tops $70K for the first time 🚀",
-      description: "Market optimism pushes BTC above its all-time high.",
-    },
-    {
-      url: "https://decrypt.co/",
-      title: "Ethereum upgrade boosts transactions ⚡",
-      description: "ETH network speed improves following latest update.",
-    },
-    {
-      url: "https://cryptoslate.com/",
-      title: "Solana gains 12% amid NFT market surge 🎨",
-      description: "SOL rallies as NFT trading volume jumps.",
-    },
-  ];
 
   useEffect(() => {
     const today = new Date().toDateString();
@@ -67,12 +66,18 @@ function NewsDigest() {
       data-testid="news-digest"
     >
       {articles.map((article) => (
-        <article key={article.url} className={styles.article}>
+        <a
+          key={article.url}
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.card}
+        >
           <h3>{article.title}</h3>
           {article.description && <p>{article.description}</p>}
-        </article>
+        </a>
       ))}
-      {atEnd && <p className={styles.caughtUp}>You're all caught up!</p>}
+      {atEnd && <p className={styles.caughtUp}>You&apos;re all caught up!</p>}
     </div>
   );
 }
