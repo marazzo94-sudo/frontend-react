@@ -3,12 +3,12 @@ import styles from './Sidebar.module.scss';
 
 
 const defaultItems = [
-  { label: 'Dashboard', to: '/dashboard', icon: '📊' },
-  { label: 'News', to: '/news', icon: '📰' },
-  { label: 'Market', to: '/market', icon: '💹' },
-  { label: 'Messages', to: '/messages', icon: '💬' },
-  { label: 'Portfolio', to: '/portfolio', icon: '💼' },
-  { label: 'Settings', to: '/settings', icon: '⚙️' },
+  { label: 'Dashboard', to: '/dashboard' },
+  { label: 'News', to: '/news' },
+  { label: 'Market', to: '/market' },
+  { label: 'Messages', to: '/messages' },
+  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Settings', to: '/settings' },
 ];
 
 function Sidebar({ items = defaultItems }) {
@@ -24,7 +24,6 @@ function Sidebar({ items = defaultItems }) {
             isActive ? `${styles.item} ${styles.active}` : styles.item
           }
         >
-          {item.icon}
           {item.label}
         </NavLink>
       ))}
