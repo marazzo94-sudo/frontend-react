@@ -5,6 +5,7 @@ import News from './pages/News';
 import Market from './pages/Market';
 import AISignals from './pages/AISignals';
 import Portfolio from './pages/Portfolio';
+import Watchlist from './pages/Watchlist';
 import Settings from './pages/Settings';
 import { Sidebar, TopBar } from './components';
 import styles from './App.module.scss';
@@ -47,6 +48,7 @@ function App() {
             <Route path="/market" element={<Market />} />
               <Route path="/signals" element={<AISignals />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/watchlist" element={<Watchlist />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
