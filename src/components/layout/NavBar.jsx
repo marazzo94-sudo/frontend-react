@@ -4,8 +4,8 @@ import styles from './NavBar.module.scss';
 function NavBar() {
   return (
     <nav className={styles.nav}>
-      <Link className={styles.link} to="/">Home</Link>
-      <Link className={styles.link} to="/dashboard">Dashboard</Link>
+      <Link className={styles.link} to="/portfolio">Portfolio</Link>
+      <Link className={styles.link} to="/watchlist">Watchlist</Link>
     </nav>
   );
 }

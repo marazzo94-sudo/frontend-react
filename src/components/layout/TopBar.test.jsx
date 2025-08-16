@@ -18,8 +18,8 @@ describe('TopBar', () => {
         <TopBar stats={stats} user={user} />
       </MemoryRouter>
     );
-    expect(getByText('Home')).toBeInTheDocument();
-    expect(getByText('Dashboard')).toBeInTheDocument();
+    expect(getByText('Portfolio')).toBeInTheDocument();
+    expect(getByText('Watchlist')).toBeInTheDocument();
     expect(getByText('Total Value', { exact: false })).toBeInTheDocument();
     expect(getByText('$10,000')).toBeInTheDocument();
     expect(getByText('P/L', { exact: false })).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('TopBar', () => {
         <TopBar theme="light" toggleTheme={toggleTheme} />
       </MemoryRouter>
     );
-    const button = getByRole('button', { name: /toggle theme/i });
+    const button = getByRole('button', { name: /switch to dark mode/i });
     expect(button).toBeInTheDocument();
   });
 
