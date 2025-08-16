@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   AssetBreakdownCard,
   EmptyState,
-  PortfolioChart,
   TradeHistoryTable,
   SummaryCardSkeleton,
   TableSkeleton,
@@ -111,9 +110,6 @@ function Dashboard() {
         </div>
         <div className={styles.assetCard}>
           <AssetBreakdownCard assets={assets} />
-        </div>
-        <div className={styles.chartCard}>
-          <PortfolioChart />
         </div>
       </div>
 

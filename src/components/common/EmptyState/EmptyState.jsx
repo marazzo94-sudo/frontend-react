@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "./Button";
+import Button from "../Button/Button";
 import styles from "./EmptyState.module.scss";
 
 function EmptyState({ message, action, actionLabel = "Retry" }) {
@@ -17,8 +17,8 @@ function EmptyState({ message, action, actionLabel = "Retry" }) {
 
 EmptyState.propTypes = {
   message: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired,
-  actionLabel: PropTypes.string.isRequired,
+  action: PropTypes.func,
+  actionLabel: PropTypes.string,
 };
 
 export default EmptyState;

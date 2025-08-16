@@ -1,10 +1,22 @@
 import React from "react";
+import ThemeToggle from "../../ThemeToggle";
+import NavBar from "../NavBar/NavBar";
+import SearchBar from "../SearchBar/SearchBar";
 import styles from "./TopBar.module.scss";
-import ThemeToggle from "./ThemeToggle";
 
-function TopBar({ stats = [], user, theme, toggleTheme }) {
+function TopBar({ stats = [], user, theme, toggleTheme, toggleSidebar }) {
   return (
     <header className={styles.bar}>
+      {toggleSidebar && (
+        <button
+          className={styles.menuButton}
+          aria-label="Toggle sidebar"
+          onClick={toggleSidebar}
+        >
+          &#9776;
+        </button>
+      )}
+      <NavBar />
       <div className={styles.statContainer}>
         {stats.map((stat) => (
           <div className={styles.statBadge} key={stat.label}>
@@ -13,6 +25,7 @@ function TopBar({ stats = [], user, theme, toggleTheme }) {
         ))}
       </div>
       <div className={styles.actions}>
+        <SearchBar className={styles.searchBar} />
         {theme && toggleTheme && (
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         )}
