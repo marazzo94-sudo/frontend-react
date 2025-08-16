@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AssetBreakdownCard,
   EmptyState,
@@ -9,14 +9,17 @@ import {
 } from '../components';
 import useCryptoData from '../hooks/useCryptoData';
 import { formatNumber } from '../utils/format';
+import { fetchTrades } from '../utils/api';
 import styles from './Dashboard.module.scss';
 
 function Dashboard() {
-  const sampleTrades = [
-    { pair: 'BTC/USD', price: 50000, amount: 0.1, action: 'buy', date: '2024-05-01T10:00:00Z' },
-    { pair: 'ETH/USD', price: 4000, amount: 1.5, action: 'sell', date: '2024-05-01T11:00:00Z' },
-    { pair: 'LTC/USD', price: 300, amount: 10, action: 'buy', date: '2024-05-02T09:30:00Z' },
-  ];
+  const [trades, setTrades] = useState([]);
+
+  useEffect(() => {
+    fetchTrades()
+      .then(setTrades)
+      .catch(() => setTrades([]));
+  }, []);
 
   const assets = [
     { symbol: 'BTC', percentage: 40, color: 'var(--color-accent-4)' },
@@ -99,10 +102,10 @@ function Dashboard() {
       </ul>
 
       <h2>Recent Trades</h2>
-      <TradeHistoryTable trades={sampleTrades} />
+      <TradeHistoryTable trades={trades} />
     </div>
   );
-  
+
 }
 
 

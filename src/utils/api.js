@@ -6,3 +6,24 @@ export async function fetchCoins() {
   }
   return response.json();
 }
+
+export async function fetchTrades() {
+  const baseDate = Date.UTC(2024, 4, 1, 10, 0, 0);
+  const trades = [
+    {
+      pair: 'BTC/USD',
+      price: 100,
+      amount: 0.1,
+      action: 'buy',
+      date: new Date(baseDate).toISOString(),
+    },
+    ...Array.from({ length: 14 }, (_, i) => ({
+      pair: `COIN${i + 1}/USD`,
+      price: 101 + i,
+      amount: i + 2,
+      action: (i + 1) % 2 === 0 ? 'sell' : 'buy',
+      date: new Date(baseDate + (i + 1) * 60000).toISOString(),
+    })),
+  ];
+  return Promise.resolve(trades);
+}
