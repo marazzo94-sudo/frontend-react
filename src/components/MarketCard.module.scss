@@ -1,11 +1,11 @@
 .card {
   position: relative;
-  padding: 1rem;
-  border-radius: 16px;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -21,22 +21,22 @@
 }
 
 .price {
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
   font-size: 1.25rem;
 }
 
 .sparkline {
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
   height: 40px;
 }
 
 .live {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: var(--space-xs);
+  right: var(--space-xs);
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--color-accent-3);
   box-shadow: 0 0 8px var(--color-accent-3);
   animation: pulse 2s infinite;

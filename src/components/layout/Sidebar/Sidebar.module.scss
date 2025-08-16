@@ -5,19 +5,19 @@
   background: var(--color-surface);
   color: var(--color-text);
   height: 100vh;
-  padding-top: 1.5rem;
+  padding-top: var(--space-lg);
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
   animation: slide-in 0.3s ease-out;
 
   @include mobile {
     width: 100%;
     height: auto;
     flex-direction: row;
-    padding-top: 0.5rem;
+    padding-top: var(--space-xs);
     box-shadow: none;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: var(--border-width) solid var(--color-border);
   }
 }
 
@@ -36,8 +36,8 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 0 1.5rem;
-  margin-bottom: 2rem;
+  padding: 0 var(--space-lg);
+  margin-bottom: var(--space-xl);
 
   @include mobile {
     display: none;
@@ -58,11 +58,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-sm);
   color: var(--color-text);
-  padding: 0.75rem 1.5rem;
+  padding: var(--space-sm) var(--space-lg);
   text-decoration: none;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   font-weight: 400;
   min-height: 44px;
   transition: background-color 0.25s, color 0.25s, transform 0.25s;
@@ -70,7 +70,7 @@
   @include mobile {
     flex: 1;
     justify-content: center;
-    padding: 0.5rem;
+    padding: var(--space-xs);
     border-radius: 0;
   }
 }
@@ -113,11 +113,11 @@
   bottom: 0;
   width: 4px;
   background: var(--color-primary);
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .separator {
   height: 1px;
   background: var(--color-border);
-  margin: 0.5rem 0;
+  margin: var(--space-xs) 0;
 }

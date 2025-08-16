@@ -1,12 +1,12 @@
 .nav {
   background: var(--color-surface);
 
-  padding: 1rem;
+  padding: var(--space-md);
 }
 
 .link {
   color: var(--color-text);
 
-  margin-right: 1rem;
+  margin-right: var(--space-md);
   text-decoration: none;
 }
