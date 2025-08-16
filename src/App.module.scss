@@ -1,11 +1,21 @@
+@use "./styles/breakpoints" as *;
+
 .container {
   display: flex;
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
+
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 .content {
   flex: 1;
   padding: 1rem;
+
+  @include mobile {
+    padding: 0.5rem;
+  }
 }
