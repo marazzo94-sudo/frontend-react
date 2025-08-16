@@ -22,7 +22,7 @@ describe('Dashboard', () => {
     expect(screen.getByRole('button', { name: /retry/i })).toBeInTheDocument();
   });
 
-  it('displays summary cards, market list, and trade history on success', () => {
+  it('displays summary cards, market list, and trade history on success', async () => {
     const mockData = [
       { id: 'btc', name: 'Bitcoin', current_price: 50000 },
       { id: 'eth', name: 'Ethereum', current_price: 4000 },
@@ -33,8 +33,8 @@ describe('Dashboard', () => {
     expect(screen.getByText('Total Balance: $10,000')).toBeInTheDocument();
     expect(screen.getByText('24h Change: +5%')).toBeInTheDocument();
     expect(screen.getByText('Bitcoin - $50000')).toBeInTheDocument();
-    // TradeHistoryTable renders sample trade
-    expect(screen.getByText('BTC/USD')).toBeInTheDocument();
+    // TradeHistoryTable renders fetched trade
+    expect(await screen.findByText('BTC/USD')).toBeInTheDocument();
   });
 });
 
