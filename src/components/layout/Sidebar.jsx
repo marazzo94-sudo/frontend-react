@@ -9,6 +9,7 @@ const Container = styled.aside`
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid var(--color-border);
 `;
 
 const Title = styled.h1`
@@ -22,23 +23,30 @@ const Title = styled.h1`
 const Item = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: 1rem;
   color: var(--color-text);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
+  border-radius: 0 1rem 1rem 0;
+  transition: background 0.3s, color 0.3s;
+
+  &:hover {
+    background: var(--color-border);
+    color: var(--color-primary);
+  }
 
   &.active {
     background: var(--color-border);
+    color: var(--color-primary);
   }
 `;
 
 const defaultItems = [
-  { label: 'Dashboard', to: '/dashboard', icon: '📊' },
-  { label: 'News', to: '/news', icon: '📰' },
-  { label: 'Market', to: '/market', icon: '💹' },
-  { label: 'Messages', to: '/messages', icon: '💬' },
-  { label: 'Portfolio', to: '/portfolio', icon: '💼' },
-  { label: 'Settings', to: '/settings', icon: '⚙️' },
+  { label: 'Dashboard', to: '/dashboard' },
+  { label: 'News', to: '/news' },
+  { label: 'Market', to: '/market' },
+  { label: 'Messages', to: '/messages' },
+  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Settings', to: '/settings' },
 ];
 
 function Sidebar({ items = defaultItems }) {
@@ -47,7 +55,6 @@ function Sidebar({ items = defaultItems }) {
       <Title>SIGNALS</Title>
       {items.map((item) => (
         <Item key={item.to} to={item.to}>
-          {item.icon}
           {item.label}
         </Item>
       ))}
