@@ -65,18 +65,31 @@ function NewsDigest() {
       onScroll={handleScroll}
       data-testid="news-digest"
     >
-      {articles.map((article) => (
-        <a
-          key={article.url}
-          href={article.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.card}
-        >
-          <h3>{article.title}</h3>
-          {article.description && <p>{article.description}</p>}
-        </a>
-      ))}
+      {articles.map((article) => {
+        const domain = new URL(article.url).hostname.replace("www.", "");
+        const placeholder =
+          "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='100%' height='100%' fill='%23ccc'/></svg>";
+        return (
+          <a
+            key={article.url}
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.card}
+          >
+            <div className={styles.content}>
+              <span className={styles.domain}>{domain}</span>
+              <h3>{article.title}</h3>
+              {article.description && <p>{article.description}</p>}
+            </div>
+            <img
+              src={article.image || placeholder}
+              alt=""
+              className={styles.thumbnail}
+            />
+          </a>
+        );
+      })}
       {atEnd && <p className={styles.caughtUp}>You&apos;re all caught up!</p>}
     </div>
   );
