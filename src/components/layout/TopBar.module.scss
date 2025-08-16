@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints" as *;
+
 .bar {
   position: sticky;
   top: 0;
@@ -7,10 +9,19 @@
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .statContainer {
   display: flex;
+
+  @include mobile {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .statBadge {
@@ -25,12 +36,22 @@
   margin-left: auto;
   display: flex;
   align-items: center;
+
+  @include mobile {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .userArea {
   display: flex;
   align-items: center;
   margin-left: 1rem;
+
+  @include mobile {
+    margin-left: 0;
+  }
 }
 
 .avatar {
