@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from "prop-types";
 import { ResponsiveContainer, LineChart, Line } from 'recharts';
 import styles from './MarketCard.module.scss';

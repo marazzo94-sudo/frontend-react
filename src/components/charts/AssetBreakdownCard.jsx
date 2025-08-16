@@ -1,18 +1,12 @@
-import React from 'react';
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
-import styles from './AssetBreakdownCard.module.scss';
+import PropTypes from "prop-types";
+import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from "recharts";
+import styles from "./AssetBreakdownCard.module.scss";
 
-function AssetBreakdownCard({ assets = [], view = 'chart' }) {
+function AssetBreakdownCard({ assets = [], view = "chart" }) {
   return (
     <div className={styles.card}>
       <h3>Asset Breakdown</h3>
-      {view === 'list' ? (
+      {view === "list" ? (
         <ul className={styles.list}>
           {assets.map((asset) => (
             <li className={styles.listItem} key={asset.symbol}>
@@ -47,5 +41,16 @@ function AssetBreakdownCard({ assets = [], view = 'chart' }) {
   );
 }
 
-export default AssetBreakdownCard;
+AssetBreakdownCard.propTypes = {
+  assets: PropTypes.arrayOf(
+    PropTypes.shape({
+      symbol: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+      color: PropTypes.string,
+    })
+  ),
+  view: PropTypes.oneOf(["chart", "list"]), 
+};
 
+
+export default AssetBreakdownCard;
