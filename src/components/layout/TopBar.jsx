@@ -3,9 +3,18 @@ import ThemeToggle from '../ThemeToggle';
 import NavBar from './NavBar';
 import styles from './TopBar.module.scss';
 
-function TopBar({ stats = [], user, theme, toggleTheme }) {
+function TopBar({ stats = [], user, theme, toggleTheme, toggleSidebar }) {
   return (
     <header className={styles.bar}>
+      {toggleSidebar && (
+        <button
+          className={styles.menuButton}
+          aria-label="Toggle sidebar"
+          onClick={toggleSidebar}
+        >
+          &#9776;
+        </button>
+      )}
       <NavBar />
       <div className={styles.statContainer}>
         {stats.map((stat) => (
