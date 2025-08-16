@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from "prop-types";
 import styles from './ChartLegend.module.scss';
 
 function ChartLegend({ items, onToggle }) {
@@ -20,5 +20,17 @@ function ChartLegend({ items, onToggle }) {
     </div>
   );
 }
+
+ChartLegend.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      visible: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  onToggle: PropTypes.func.isRequired,
+};
+
 
 export default ChartLegend;

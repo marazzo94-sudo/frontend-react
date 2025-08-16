@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { ResponsiveContainer, LineChart, Line } from 'recharts';
 import styles from './MarketCard.module.scss';
 
@@ -45,5 +46,16 @@ function MarketCard({ coin }) {
     </div>
   );
 }
+
+MarketCard.propTypes = {
+  coin: PropTypes.shape({
+    symbol: PropTypes.string.isRequired,
+    current_price: PropTypes.number.isRequired,
+    price_change_percentage_24h: PropTypes.number,
+    sparkline_in_7d: PropTypes.shape({
+      price: PropTypes.arrayOf(PropTypes.number),
+    }),
+  }).isRequired,
+};
 
 export default MarketCard;
