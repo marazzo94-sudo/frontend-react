@@ -8,15 +8,27 @@
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--color-border);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  animation: slide-in 0.3s ease-out;
 
   @include mobile {
     width: 100%;
     height: auto;
     flex-direction: row;
     padding-top: 0.5rem;
-    border-right: none;
+    box-shadow: none;
     border-bottom: 1px solid var(--color-border);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -32,14 +44,28 @@
   }
 }
 
+.nav {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    flex-direction: row;
+    flex: 1;
+  }
+}
+
 .item {
+  position: relative;
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   color: var(--color-text);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
   border-radius: 0 1rem 1rem 0;
-  transition: background 0.3s, color 0.3s;
+  font-weight: 400;
+  min-height: 44px;
+  transition: background-color 0.25s, color 0.25s, transform 0.25s;
 
   @include mobile {
     flex: 1;
@@ -52,9 +78,46 @@
 .item:hover {
   background: var(--color-border);
   color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.item:focus-visible {
+  background: var(--color-border);
+  color: var(--color-primary);
+  transform: translateX(4px);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.label {
+  letter-spacing: 0.02em;
 }
 
 .active {
   background: var(--color-border);
   color: var(--color-primary);
+  font-weight: 600;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.separator {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0.5rem 0;
 }
