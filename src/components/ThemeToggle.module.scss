@@ -1,51 +1,158 @@
 .toggle {
   position: relative;
-  width: 50px;
-  height: 26px;
+  width: 60px;
+  height: 30px;
   border: none;
-  border-radius: 13px;
+  border-radius: 15px;
   padding: 0;
-  background: var(--color-surface);
+  background: linear-gradient(135deg, #2c2c54 0%, #40407a 100%);
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 
+      4px 2px 0 rgba(255, 255, 255, 0.4),
+      8px -1px 0 rgba(255, 255, 255, 0.3),
+      12px 3px 0 rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%);
+    transition: opacity 0.4s ease;
+  }
 }
 
 .ball {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: var(--color-text);
-  transition: transform 0.4s ease, background 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, #6c7ce7 0%, #a55eea 100%);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    top: 6px;
+    left: 8px;
+    box-shadow: 
+      6px 2px 0 -1px rgba(0, 0, 0, 0.15),
+      -2px 8px 0 -1px rgba(0, 0, 0, 0.1),
+      4px 12px 0 -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%) rotate(0deg);
+    background: 
+      linear-gradient(0deg, transparent 40%, rgba(255, 212, 59, 0.8) 42%, rgba(255, 212, 59, 0.8) 58%, transparent 60%),
+      linear-gradient(45deg, transparent 40%, rgba(255, 212, 59, 0.6) 42%, rgba(255, 212, 59, 0.6) 58%, transparent 60%),
+      linear-gradient(90deg, transparent 40%, rgba(255, 212, 59, 0.8) 42%, rgba(255, 212, 59, 0.8) 58%, transparent 60%),
+      linear-gradient(135deg, transparent 40%, rgba(255, 212, 59, 0.6) 42%, rgba(255, 212, 59, 0.6) 58%, transparent 60%);
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: -1;
+  }
 }
 
 .dark {
-  background: var(--color-surface);
-}
+  background: linear-gradient(135deg, #2c2c54 0%, #40407a 100%);
+  
+  &::before {
+    opacity: 1;
+  }
 
-.dark .ball::before {
-  content: '';
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background: var(--color-surface);
-  border-radius: 50%;
-  top: 0;
-  left: 8px;
+  .ball {
+    background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
 }
 
 .light {
-  background: var(--color-surface);
+  background: linear-gradient(135deg, #ffd54f 0%, #ffb74d 100%);
+  box-shadow: 
+    inset 0 2px 6px rgba(255, 193, 7, 0.3),
+    0 4px 12px rgba(255, 193, 7, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+
+  &::before {
+    opacity: 0;
+  }
+
+  .ball {
+    transform: translateX(33px) rotate(540deg);
+    background: linear-gradient(135deg, #fff59d 0%, #ffeb3b 100%);
+    box-shadow: 
+      0 0 15px rgba(255, 212, 59, 0.8),
+      0 0 25px rgba(255, 212, 59, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
 }
 
-.light .ball {
-  transform: translateX(24px);
-  background: var(--color-accent-4);
-  box-shadow: 0 0 8px rgba(255, 212, 59, 0.8);
+.toggle:hover {
+  transform: scale(1.05);
+  
+  .ball {
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(108, 124, 231, 0.3);
+  }
 }
 
-.light .ball::before {
-  content: none;
+.light:hover .ball {
+  box-shadow: 
+    0 0 20px rgba(255, 212, 59, 1),
+    0 0 35px rgba(255, 212, 59, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toggle:active {
+  transform: scale(0.95);
 }
