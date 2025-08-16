@@ -3,3 +3,4 @@ export * from './charts';
 export * from './layout';
 export * from './tables';
 export { default as NewsDigest } from './NewsDigest';
+export { default as MarketCard } from './MarketCard';

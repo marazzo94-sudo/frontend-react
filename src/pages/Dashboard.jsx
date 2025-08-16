@@ -6,6 +6,7 @@ import {
   TradeHistoryTable,
   SummaryCardSkeleton,
   TableSkeleton,
+  MarketCard,
 } from '../components';
 import useCryptoData from '../hooks/useCryptoData';
 import { formatNumber } from '../utils/format';
@@ -48,6 +49,26 @@ function Dashboard() {
     return sum + amount * coin.price_change_24h;
   }, 0);
 
+  const [balanceAnimated, setBalanceAnimated] = useState(0);
+  const [changeAnimated, setChangeAnimated] = useState(0);
+
+  useEffect(() => {
+    const animate = (target, setter) => {
+      let current = 0;
+      const step = (target - current) / 40;
+      const interval = setInterval(() => {
+        current += step;
+        if ((step >= 0 && current >= target) || (step < 0 && current <= target)) {
+          current = target;
+          clearInterval(interval);
+        }
+        setter(current);
+      }, 16);
+    };
+    animate(totalBalance, setBalanceAnimated);
+    animate(totalChange, setChangeAnimated);
+  }, [totalBalance, totalChange]);
+
   if (loading) {
     return (
       <div>
@@ -80,29 +101,33 @@ function Dashboard() {
   }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <div className={styles.grid}>
-        <div className={styles.summaryCard}>
-          Total Balance: ${formatNumber(totalBalance)}
+        <div className={`${styles.summaryCard} ${styles.balanceCard}`}>
+          Total Balance: ${formatNumber(balanceAnimated)}
         </div>
-        <div className={styles.summaryCard}>
-          24h Change: {totalChange >= 0 ? '+' : '-'}${formatNumber(Math.abs(totalChange))}
+        <div className={`${styles.summaryCard} ${styles.changeCard}`}>
+          24h Change: {changeAnimated >= 0 ? '+' : '-'}${formatNumber(Math.abs(changeAnimated))}
         </div>
-        <AssetBreakdownCard assets={assets} />
-        <PortfolioChart />
+        <div className={styles.assetCard}>
+          <AssetBreakdownCard assets={assets} />
+        </div>
+        <div className={styles.chartCard}>
+          <PortfolioChart />
+        </div>
       </div>
 
       <h2>Crypto Markets</h2>
-      <ul>
+      <div className={styles.marketGrid}>
         {data.map((coin) => (
-          <li key={coin.id}>
-            {coin.name} - ${coin.current_price}
-          </li>
+          <MarketCard key={coin.id} coin={coin} />
         ))}
-      </ul>
+      </div>
 
       <h2>Recent Trades</h2>
-      <TradeHistoryTable trades={trades} />
+      <div className={styles.tradeZone}>
+        <TradeHistoryTable trades={trades} />
+      </div>
     </div>
   );
 

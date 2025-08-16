@@ -19,10 +19,10 @@ vi.mock('../../hooks/useCryptoData', () => ({
 }));
 
 describe('Dashboard', () => {
-  it('shows calculated total balance and 24h change', () => {
+  it('shows calculated total balance and 24h change', async () => {
     render(<Dashboard />);
 
-    expect(screen.getByText('Total Balance: $35,000')).toBeInTheDocument();
-    expect(screen.getByText('24h Change: +$400')).toBeInTheDocument();
+    expect(await screen.findByText('Total Balance: $35,000')).toBeInTheDocument();
+    expect(await screen.findByText('24h Change: +$400')).toBeInTheDocument();
   });
 });

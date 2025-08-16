@@ -40,6 +40,14 @@ function PortfolioChart() {
     <div className={styles.chartContainer} data-testid="portfolio-chart">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+          <defs>
+            {items.map((item) => (
+              <linearGradient key={item.label} id={`grad-${item.label}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={item.color} stopOpacity={0.8} />
+                <stop offset="100%" stopColor={item.color} stopOpacity={0} />
+              </linearGradient>
+            ))}
+          </defs>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
@@ -51,9 +59,11 @@ function PortfolioChart() {
                   key={item.label}
                   type="monotone"
                   dataKey={item.label}
-                  stroke={item.color}
-                  strokeWidth={2}
+                  stroke={`url(#grad-${item.label})`}
+                  strokeWidth={3}
                   dot={false}
+                  isAnimationActive
+                  animationDuration={800}
                 />
               )
           )}

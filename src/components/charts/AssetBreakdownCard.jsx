@@ -1,19 +1,14 @@
 import React from 'react';
+import {
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+} from 'recharts';
 import styles from './AssetBreakdownCard.module.scss';
 
 function AssetBreakdownCard({ assets = [], view = 'chart' }) {
-  const gradient = React.useMemo(() => {
-    let cumulative = 0;
-    return assets
-      .map((asset) => {
-        const start = cumulative;
-        cumulative += asset.percentage * 3.6;
-        const end = cumulative;
-        return `${asset.color} ${start}deg ${end}deg`;
-      })
-      .join(', ');
-  }, [assets]);
-
   return (
     <div className={styles.card}>
       <h3>Asset Breakdown</h3>
@@ -27,10 +22,26 @@ function AssetBreakdownCard({ assets = [], view = 'chart' }) {
           ))}
         </ul>
       ) : (
-        <div
-          className={styles.chart}
-          style={{ background: `conic-gradient(${gradient})` }}
-        />
+        <div className={styles.chart}>
+          <ResponsiveContainer width="100%" height={200}>
+            <PieChart>
+              <Pie
+                dataKey="percentage"
+                data={assets}
+                nameKey="symbol"
+                innerRadius={50}
+                outerRadius={80}
+                paddingAngle={2}
+                isAnimationActive
+              >
+                {assets.map((asset) => (
+                  <Cell key={asset.symbol} fill={asset.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       )}
     </div>
   );
