@@ -52,7 +52,7 @@ const defaultItems = [
   { label: 'Dashboard', to: '/dashboard' },
   { label: 'News', to: '/news' },
   { label: 'Market', to: '/market' },
-  { label: 'Messages', to: '/messages' },
+    { label: 'AI Signals', to: '/signals' },
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Settings', to: '/settings' },
 ];

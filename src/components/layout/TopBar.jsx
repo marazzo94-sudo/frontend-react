@@ -1,6 +1,7 @@
 import React from 'react';
 import ThemeToggle from '../ThemeToggle';
 import NavBar from './NavBar';
+import SearchBar from '../SearchBar';
 import styles from './TopBar.module.scss';
 
 function TopBar({ stats = [], user, theme, toggleTheme, toggleSidebar }) {
@@ -23,23 +24,24 @@ function TopBar({ stats = [], user, theme, toggleTheme, toggleSidebar }) {
           </div>
         ))}
       </div>
-      <div className={styles.actions}>
-        {theme && toggleTheme && (
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        )}
-        {user && (
-          <div className={styles.userArea}>
-            {user.avatar && (
-              <img
-                className={styles.avatar}
-                src={user.avatar}
-                alt="user avatar"
-              />
-            )}
-            {user.name && <span>{user.name}</span>}
-          </div>
-        )}
-      </div>
+        <div className={styles.actions}>
+          <SearchBar className={styles.searchBar} />
+          {theme && toggleTheme && (
+            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+          )}
+          {user && (
+            <div className={styles.userArea}>
+              {user.avatar && (
+                <img
+                  className={styles.avatar}
+                  src={user.avatar}
+                  alt="user avatar"
+                />
+              )}
+              {user.name && <span>{user.name}</span>}
+            </div>
+          )}
+        </div>
     </header>
   );
 }

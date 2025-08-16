@@ -12,7 +12,7 @@ describe('Sidebar', () => {
       </MemoryRouter>
     );
 
-    ['Dashboard', 'News', 'Market', 'Messages', 'Portfolio', 'Settings'].forEach(
+      ['Dashboard', 'News', 'Market', 'AI Signals', 'Portfolio', 'Settings'].forEach(
       (label) => {
         expect(getByText(label, { exact: false })).toBeInTheDocument();
       }
